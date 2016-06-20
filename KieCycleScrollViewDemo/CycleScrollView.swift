@@ -226,13 +226,17 @@ extension CycleScrollView: UIScrollViewDelegate {
                 collectionView.scrollToItemAtIndexPath(NSIndexPath(forRow: 0, inSection: 0), atScrollPosition: .None, animated: false)
             }
         }
+
+        pageController.currentPage = (Int)(currentOffset / viewLength)
+        oldOffset = currentOffset
+    }
+    
+    func scrollViewDidEndScrollingAnimation(scrollView: UIScrollView) {
         // 当最后张图片滑动到第一张时，改变页码
         if currentOffset > (CGFloat)(imageArray.count - 1) * viewLength {
             pageController.currentPage = 0
-        }else {
-            pageController.currentPage = (Int)(currentOffset / viewLength)
+            
         }
-        oldOffset = currentOffset
     }
     
     // 即将开始拖拽逻辑
