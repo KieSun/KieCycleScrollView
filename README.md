@@ -1,5 +1,5 @@
 # KieCycleScrollView
-Swift 版广告轮播器
+Swift 版图片轮播器
 
 第一次写轮子，不足之处还请谅解。
 
